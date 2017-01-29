@@ -40,7 +40,7 @@
 \normalfont \normalsize 
 \textsc{Georgia Institute of Technology - Guggenheim School of Aerospace Engineering} \\ [25pt] % Your university, school and/or department name(s)
 \horrule{0.5pt} \\[0.4cm] % Thin top horizontal rule
-\huge Chapter 3 Notes \\ % The assignment title
+\huge System Dynamics Notes \\ % The assignment title
 \horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
 }
 
@@ -58,7 +58,7 @@
 
 \section{Modeling Mechanical Systems}
 
-Chapter 3 covers the mathmatical modeling of mechanical systems.  Systems can be described in units of Length, Mass or Time. Measurement systems can be 'absolute' or 'gravitational'. In absolute systems, Mass is chosen as a primary dimension, and force is a derived quantity. In this system, force is defined from mass and acceleration F = ma. In gravitational systems, Force is a primary dimensions. In gravitational systems, mass is defined from the ratio of the Force on an object to its acceleration. Mass is defined as F/a. SI units are an example of an absolute measurement system (kg, m, s). The British Engineering System (BES) is an example of a gravitational measurement system (lbf, ft, s). All examples will be given in SI units. A chart comparing aboslute and gravitational systems can be found in the appendix.\\
+Systems can be described in units of Length, Mass or Time. Measurement systems can be 'absolute' or 'gravitational'. In absolute systems, Mass is chosen as a primary dimension, and force is a derived quantity. In this system, force is defined from mass and acceleration F = ma. In gravitational systems, Force is a primary dimension. In gravitational systems, mass is defined from the ratio of the Force on an object to its acceleration. Mass is defined as $\frac{F}{a}$. SI units are an example of an absolute measurement system (kg, m, s). The British Engineering System (BES) is an example of a gravitational measurement system (lbf, ft, s). All examples will be given in SI units. A chart comparing aboslute and gravitational systems can be found in the appendix.\\
 
 Mechanical Systems are made up of 3 primary elements. 
 \begin{itemize}
@@ -81,13 +81,13 @@ In our diagrams we use the following notation conventions:
 \subsection{Elemental Behavior}
 
 \subparagraph{Springs}~ \\
-A Linear spring is one whose displacement is proportional to a force applied on it by the environment. If a force is acting on a linear spring, the following is true: 
+A Linear spring is one whose displacement is proportional to an applied outside force. If a force is acting on a linear spring, the following is true: 
 $$F \propto x$$
 
 Using empirical values we can determine the spring constant, k, as follows:
-$$k = F/x$$
+$$k = \frac{F}{x}$$
 $$F = kx$$
-Consider a spring lengthened by an outside force. Due to Newtons 3rd law, the spring will apply and equal and opposite force on its surroundings. If a spring is lengthened, the spring will apply a force on its surroundings towards its center. If the spring is compressed, it will apply a force on its surroundings away from its center. A force is positive if it points towards the center of the spring. A force is negative if it points away from the center of the sping.\\
+Consider a spring lengthened by an outside force. Due to Newtons 3rd law, the spring will apply and equal and opposite force on its surroundings. If a spring is lengthened, the spring will apply a force on its surroundings towards its center. If the spring is compressed, it will apply a force on its surroundings away from its center. A force is 'positive' if it points towards the center of the spring. A force is 'negative' if it points away from the center of the sping.\\
 
 \begin{figure}
 \begin{center}
@@ -100,8 +100,8 @@ Consider a spring lengthened by an outside force. Due to Newtons 3rd law, the sp
 A Linear Torsional Spring is one whose displacement is proportional to a torque applied on it by the environment. This is a rotational displacement. \\
 $$\tau \propto \theta$$
 Using empirical values, we can determine a spring constant, k, as follows:
-$$k = \tau/\theta$$
-$$\tau = k\theta$$
+$$k = \frac{\tau}{\theta}$$
+$$\tau = \frac{k}{\theta}$$
 
 \begin{figure}
 \begin{center}
@@ -111,7 +111,7 @@ $$\tau = k\theta$$
 \end{center}
 \end{figure}
 Springs store potential energy. The potential energy of a spring can be found using the following: \\
-$$PE = 1/2 kx^2$$
+$$PE = \frac{1}{2} kx^2$$
 
 \subparagraph{Dampers}~ \\
 A Damper is a mechanical element that opposes motion. While springs can be used to store potential energy, a damper is used to dissipate kinetic energy as heat. This can be done with a piston and cylinder of oil. As the oil passes the piston, a friction force is exerted. Friction is a non-conservative force. If a friction force is applied over a distance, the total mechanical energy of the system decreases. Mechanical Energy is defined as the sum of Potential Energy and Kinetic Energy. \\
@@ -146,8 +146,8 @@ $$\Sigma \tau = J \alpha$$
 
 \subparagraph{Forced Response VS Natural Reponse}~ \\
 System behavior is dependent on the systems initial conditions and inputs from the environment. A forced response is caused by a 'forcing function', which is a function describing system inputs from the environment. A natural response is due to initial conditions in the system. \\
-Natural Response Example: A car is going down the road at steady 60 mph. At t=0, the engine cuts out. The car coasts down the road until it comes to a stop. The response after t=0 would be the natural response. \\
-Forced Response Example: A car is going down the road. At t=0, the engine sets to a constant energy input into the car. This is a forced response. There is a user input forcing the behavior of the system. \\
+Natural Response Example: A car is going down the road at steady 60 mph. At $t=0$, the engine cuts out. The car coasts down the road until it comes to a stop. The response after $t=0$ would be the natural response. \\
+Forced Response Example: A car is going down the road. At $t=0$, the engine sets to a constant energy input into the car. This is a forced response. There is a user input forcing the behavior of the system. \\
 
 \begin{figure}
 \begin{center}
@@ -157,24 +157,28 @@ Forced Response Example: A car is going down the road. At t=0, the engine sets t
 \end{center}
 \end{figure}
 
-$$$$
+\subparagraph{Example 1}~ \\
 
-\begin{align} 
-\begin{split}
-(x+y)^3 	&= (x+y)^2(x+y)\\
-&=(x^2+2xy+y^2)(x+y)\\
-&=(x^3+2x^2y+xy^2) + (x^2y+2xy^2+y^3)\\
-&=x^3+3x^2y+3xy^2+y^3
-\end{split}					
-\end{align}
+Lets consider a mass mounted to bearings as shown in the image. A person rotates the system until is reaches angular velocity $\omega(0)$ at $t=0$. At $t=0$, the person stops cranking the shaft of the system. Determine the behavior of the system. Note - This is an example of a natural response. 
 
-Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies
+\begin{align*}
+\omega(0) &= \omega_0  &\text{Initial Conditions}\\
+J\dot{\omega} &= -b\omega &\text{Equation of Motion}\\
+J\dot{\omega} + b\omega &= 0 &\text{ } \\
+\mathcal{L}(J\dot{\omega} + b\omega) &= \mathcal{L}(0)  &\text{Take the Laplace Transform}\\
+J(s\mathcal{L}(\omega) - \omega(0)) + b \mathcal{L}(\omega)) &= 0 &\text{Use Laplace Substitution}\\
+\mathcal{L}(\omega) &= \omega(0)\frac{1}{(s + \frac{b}{J})}  &\text{Solve Laplace Transform}\\
+\mathcal{L}^{-1}(\mathcal{L}(\omega)) &= \mathcal{L}^{-1}\left(\omega(0)\frac{1}{(s + \frac{b}{J})}\right) &\text{Take the Inverse Laplce}\\
+\omega(t) &= \omega(0)e^{-\left(\frac{b}{J}\right)t} &\text{Solution}\\
+\end{align*}
+
+
 
 %------------------------------------------------
 
 \subsection{Heading on level 2 (subsection)}
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+
 \begin{align}
 A = 
 \begin{bmatrix}
@@ -182,23 +186,23 @@ A_{11} & A_{21} \\
 A_{21} & A_{22}
 \end{bmatrix}
 \end{align}
-Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+
 
 %------------------------------------------------
 
 \subsubsection{Heading on level 3 (subsubsection)}
 
-\lipsum[3] % Dummy text
+
 
 \paragraph{Heading on level 4 (paragraph)}
 
-\lipsum[6] % Dummy text
+
 
 %----------------------------------------------------------------------------------------
 %	PROBLEM 2
 %----------------------------------------------------------------------------------------
 
-\section{Lists}
+\section{Modeling Systems with Transfer-Functions}
 
 %------------------------------------------------
 
