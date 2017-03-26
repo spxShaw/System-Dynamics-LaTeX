@@ -1,0 +1,152 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Tufte-Style Book (Minimal Template)
+% LaTeX Template
+% Version 1.0 (5/1/13)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% IMPORTANT NOTE:
+% In addition to running BibTeX to compile the reference list from the .bib
+% file, you will need to run MakeIndex to compile the index at the end of the
+% document.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{tufte-book} % Use the tufte-book class which in turn uses the tufte-common class
+
+\hypersetup{colorlinks} % Comment this line if you don't wish to have colored links
+
+\usepackage{microtype} % Improves character and word spacing
+
+\usepackage{lipsum} % Inserts dummy text
+
+\usepackage{booktabs} % Better horizontal rules in tables
+
+\usepackage{mathrsfs}
+
+\usepackage{graphicx} % Needed to insert images into the document
+\graphicspath{{graphics/}} % Sets the default location of pictures
+\setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio} % Improves figure scaling
+
+\usepackage{fancyvrb} % Allows customization of verbatim environments
+\fvset{fontsize=\normalsize} % The font size of all verbatim text can be changed here
+
+\newcommand{\hangp}[1]{\makebox[0pt][r]{(}#1\makebox[0pt][l]{)}} % New command to create parentheses around text in tables which take up no horizontal space - this improves column spacing
+\newcommand{\hangstar}{\makebox[0pt][l]{*}} % New command to create asterisks in tables which take up no horizontal space - this improves column spacing
+
+\usepackage{xspace} % Used for printing a trailing space better than using a tilde (~) using the \xspace command
+
+\newcommand{\monthyear}{\ifcase\month\or January\or February\or March\or April\or May\or June\or July\or August\or September\or October\or November\or December\fi\space\number\year} % A command to print the current month and year
+
+\newcommand{\openepigraph}[2]{ % This block sets up a command for printing an epigraph with 2 arguments - the quote and the author
+\begin{fullwidth}
+\sffamily\large
+\begin{doublespace}
+\noindent\allcaps{#1}\\ % The quote
+\noindent\allcaps{#2} % The author
+\end{doublespace}
+\end{fullwidth}
+}
+
+\newcommand{\blankpage}{\newpage\hbox{}\thispagestyle{empty}\newpage} % Command to insert a blank page
+
+\usepackage{makeidx} % Used to generate the index
+\makeindex % Generate the index which is printed at the end of the document
+
+%----------------------------------------------------------------------------------------
+%	BOOK META-INFORMATION
+%----------------------------------------------------------------------------------------
+
+\title{Book Title} % Title of the book
+
+\author{John Smith} % Author
+
+\publisher{Publisher Name} % Publisher
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\frontmatter
+
+
+%----------------------------------------------------------------------------------------
+
+\mainmatter
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 1
+%----------------------------------------------------------------------------------------
+
+\chapter{Chapter 4 - Transfer Functions}
+\label{ch:1}
+
+%------------------------------------------------
+
+\section{Introduction}
+
+\begin{fullwidth}
+
+At this point the reader should be familiar with few mechanical elements that can be used to describe dynamic systems. Elements can be classified as Elastic, Frictional, or Intertial elements. Elastic elements apply forces on the system towards an equilibrium point. Frictional elements oppose any motion of the system. Elastic elements store potential energy. Frictional elements dissipate kinetic energy into heat. Intertial elements store kinetic energy.
+
+
+The response of an elastic element is the result of position. A frictional element responds to motion of/within the system. In our case, we have considered friction due to dampers/dashpots. However, it should also be noted that one could invent a frictional element that reponds only to the acceleration of the system. One could create a frictional element for all derrivatives of motion including velocity, acceleration, jerk, snap/jounce, crackle, and pop. Using elements in our systems that respond to these lower level derrivatives adds significant complexity to our analysis. If a frictional behavior of a real world system can be approximated with only velocity, the analysis of a system will be easier. In this guide we only pay attention to dampers, and ignore any frictional elements that respond to acceleration, jerk, snap, crackle, or pop. 
+\newline
+These mechanical elements can be used to create equations of motion that describe the behavior of a system. The complexity of solving the equations of motion can be decreased using Laplace Transformations and the Laplace Inverse of functions. 
+\newline
+Transfer functions are an alternate way of expressing the solutions to these equations. In our case, the solution relates the position of the system over time to the forces acting on the system over time. The transfer function is simply a mathmatical convention for how the solution is written. The concept of a transfer function is only applicable in the simplest cases. Our system must be linear and time invariant for the idea of a transfer function to be useful. The reason for this will become apparent shortly.
+\newline
+
+\end{fullwidth}
+
+\subsection{Transfer Functions}
+
+The transfer function of a system can be written as follows:
+
+$ \frac{\mathscr{L}\{x(t)\}}{\mathscr{L}\{u(t)\}} = G(s) $
+
+Where G(s) is the ratio bewteen the output (position) and input (force) of the system. This applies generally to any system input and output. The transfer function is the ratio of output and input. 
+
+INSERT EXAMPLE 1 Spring Mass Problem. 
+
+Consider the system in Figure (). Examining this system we can see the equation of motion is the following:
+
+Assuming the initial conditions are zero, we get the following equation. From here, identifying the transfer function requires  some rearrangment. This gives us the following transfer function:
+
+
+
+
+
+\subsection{Transfer Functions Behavior for Different Inputs}
+
+
+This provides us the general solution to the system. If we wanted to predict how the system would behave, we would need to know more about function $ f(t) $. This is also known as the Forcing Function. Our input function can come in many different forms. Our input function could be a step function, ramp, pulse, impulse, etc. In general, the input function can take any mathmatical form you can think of. However, we are mostly interested in step function and impulse function inputs. Most of the examples in this section and subsequent sections will only consider step function and impulse function inputs. 
+
+INSERT EXAMPLE 2. STEP INPUT
+
+INSERT EXAMPLE 3. IMPULSE
+
+%------------------------------------------------
+
+\section{Scilab Transfer Functions}
+
+
+\subsection{Common Commands}
+
+INSERT COMMON COMMANDS
+
+\section{Real World Applications}
+
+INSERT CIRCUITS EXAMPLE
+
+INSERT DEUS EX EXAMPLE
+
+\end{document}
